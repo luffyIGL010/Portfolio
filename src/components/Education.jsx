@@ -13,7 +13,7 @@ const Education = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-white mb-4"
+            className="text-3xl md:text-4xl font-bold text-heading mb-4"
           >
             Education & <span className="text-gradient">Journey</span>
           </motion.h2>
@@ -25,7 +25,7 @@ const Education = () => {
           />
         </div>
 
-        <div className="relative border-l border-white/10 ml-3 md:ml-0 md:pl-0">
+        <div className="relative border-l border-dark-border ml-3 md:ml-0 md:pl-0">
           {education.map((edu, index) => (
             <motion.div 
               key={index}
@@ -44,21 +44,21 @@ const Education = () => {
                   <GraduationCap className="w-24 h-24" />
                 </div>
                 
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{edu.degree}</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-heading mb-2">{edu.degree}</h3>
                 <h4 className="text-lg font-medium text-primary-400 mb-4">{edu.major}</h4>
                 
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-sm text-gray-400 mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-sm text-muted mb-4">
                   <span className="flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-gray-500" />
+                    <MapPin className="w-4 h-4 text-muted" />
                     {edu.institution}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Calendar className="w-4 h-4 text-gray-500" />
+                    <Calendar className="w-4 h-4 text-muted" />
                     {edu.period}
                   </span>
                 </div>
                 
-                <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                <p className="text-foreground leading-relaxed text-sm md:text-base">
                   {edu.description}
                 </p>
               </div>

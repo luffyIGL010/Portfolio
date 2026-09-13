@@ -2,6 +2,7 @@ import {
   Code2, Database, BrainCircuit, Globe, Bot, Shield, 
   Terminal, Server, LayoutTemplate, Workflow, Cpu, Rocket
 } from "lucide-react";
+import resumePdf from "../assets/Saurav_Resume.pdf";
 
 export const personalInfo = {
   name: "Saurav Rauthan",
@@ -12,7 +13,7 @@ export const personalInfo = {
   github: "https://github.com/luffyIGL010",
   linkedin: "https://www.linkedin.com/in/saurav-rauthan-696a6428a/",
   leetcode: "https://leetcode.com/u/Saurav1200/",
-  resumeUrl: "/Saurav_Resume.pdf", // placeholder
+  resumeUrl: resumePdf,
   profileImage: "/Saurav.jpeg", // using the image present in directory
   year: 2026
 };

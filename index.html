@@ -6,8 +6,13 @@
     <meta name="title" content="Saurav Rauthan | AI & Machine Learning Engineer">
     <meta name="description" content="Portfolio of Saurav Rauthan, an AI & Machine Learning Engineer specializing in Python, Data Science, Machine Learning, and Artificial Intelligence.">
     <title>Saurav Rauthan | AI & Machine Learning Engineer</title>
+    <script>
+      if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
   </head>
-  <body class="bg-dark-bg text-gray-100 font-sans antialiased selection:bg-primary-500/30">
+  <body class="bg-dark-bg text-foreground font-sans antialiased selection:bg-primary-500/30">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

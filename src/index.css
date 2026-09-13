@@ -2,26 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --theme-bg: 248 250 252;
+  --theme-card: 255 255 255;
+  --theme-border: 226 232 240;
+  --theme-heading: 15 23 42;
+  --theme-text: 51 65 85;
+  --theme-muted: 100 116 139;
+  color-scheme: light;
+}
+
+html.dark {
+  --theme-bg: 10 10 15;
+  --theme-card: 18 18 26;
+  --theme-border: 31 31 46;
+  --theme-heading: 255 255 255;
+  --theme-text: 229 231 235;
+  --theme-muted: 156 163 175;
+  color-scheme: dark;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   
   body {
-    @apply bg-dark-bg text-gray-200 antialiased;
+    @apply bg-dark-bg text-foreground antialiased transition-colors duration-300;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-dark-card/60 backdrop-blur-md border border-dark-border;
+    @apply bg-dark-card/80 backdrop-blur-md border border-dark-border;
   }
   
   .glass-card {
-    @apply bg-dark-card/40 backdrop-blur-sm border border-white/5 hover:border-primary-500/30 transition-all duration-300;
+    @apply bg-dark-card/70 backdrop-blur-sm border border-dark-border hover:border-primary-500/30 transition-all duration-300;
   }
   
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-cyan-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-cyan-600 dark:from-primary-400 dark:to-cyan-400;
   }
 }

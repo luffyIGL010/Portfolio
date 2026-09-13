@@ -37,33 +37,33 @@ const ProjectModal = ({ project, onClose }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-2 space-y-6">
               <section>
-                <h4 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                <h4 className="text-xl font-semibold text-heading mb-3 flex items-center gap-2">
                   <Info className="w-5 h-5 text-primary-400" />
                   Project Overview
                 </h4>
-                <p className="text-gray-300 leading-relaxed">{project.description}</p>
+                <p className="text-foreground leading-relaxed">{project.description}</p>
               </section>
 
               <section>
-                <h4 className="text-lg font-semibold text-white mb-2">Problem Statement</h4>
-                <p className="text-gray-400 leading-relaxed">{project.details.problem}</p>
+                <h4 className="text-lg font-semibold text-heading mb-2">Problem Statement</h4>
+                <p className="text-muted leading-relaxed">{project.details.problem}</p>
               </section>
 
               <section>
-                <h4 className="text-lg font-semibold text-white mb-2">Solution</h4>
-                <p className="text-gray-400 leading-relaxed">{project.details.solution}</p>
+                <h4 className="text-lg font-semibold text-heading mb-2">Solution</h4>
+                <p className="text-muted leading-relaxed">{project.details.solution}</p>
               </section>
             </div>
 
             <div className="space-y-6">
               <section>
-                <h4 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                <h4 className="text-xl font-semibold text-heading mb-4 flex items-center gap-2">
                   <Code className="w-5 h-5 text-primary-400" />
                   Technologies
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, i) => (
-                    <span key={i} className="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-gray-300 text-sm">
+                    <span key={i} className="px-3 py-1 rounded-md bg-foreground/5 border border-dark-border text-foreground text-sm">
                       {tech}
                     </span>
                   ))}
@@ -71,13 +71,13 @@ const ProjectModal = ({ project, onClose }) => {
               </section>
 
               <section>
-                <h4 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                <h4 className="text-xl font-semibold text-heading mb-4 flex items-center gap-2">
                   <Play className="w-5 h-5 text-primary-400" />
                   Key Features
                 </h4>
                 <ul className="space-y-2">
                   {project.details.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-gray-400 text-sm">
+                    <li key={i} className="flex items-start gap-2 text-muted text-sm">
                       <span className="text-primary-400 mt-1">•</span>
                       {feature}
                     </li>
@@ -99,7 +99,7 @@ const ProjectModal = ({ project, onClose }) => {
                   href={project.githubUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-gray-600 hover:bg-white/5 text-white font-medium transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-dark-border hover:bg-foreground/5 text-heading font-medium transition-colors"
                 >
                   <Github className="w-4 h-4" />
                   View Source Code
@@ -132,7 +132,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-white mb-4"
+            className="text-3xl md:text-4xl font-bold text-heading mb-4"
           >
             Featured <span className="text-gradient">Projects</span>
           </motion.h2>
@@ -141,7 +141,7 @@ const Projects = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-400 mb-8 max-w-2xl mx-auto"
+            className="text-muted mb-8 max-w-2xl mx-auto"
           >
             Selected projects where I turn ideas into working applications.
           </motion.p>
@@ -161,7 +161,7 @@ const Projects = () => {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === cat 
                   ? 'bg-primary-600 text-white shadow-lg shadow-primary-500/20' 
-                  : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10'
+                  : 'bg-foreground/5 text-muted hover:text-heading hover:bg-foreground/10'
               }`}
             >
               {cat}
@@ -197,10 +197,10 @@ const Projects = () => {
                 </div>
                 
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">
+                  <h3 className="text-xl font-bold text-heading mb-2 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-6 line-clamp-3">
+                  <p className="text-muted text-sm mb-6 line-clamp-3">
                     {project.description}
                   </p>
                   
@@ -211,14 +211,14 @@ const Projects = () => {
                       </span>
                     ))}
                     {project.technologies.length > 3 && (
-                      <span className="text-xs font-medium text-gray-400 bg-white/5 px-2 py-1 rounded-md">
+                      <span className="text-xs font-medium text-muted bg-foreground/5 px-2 py-1 rounded-md">
                         +{project.technologies.length - 3} more
                       </span>
                     )}
                   </div>
                   
-                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                    <span className="text-sm font-medium text-white flex items-center gap-1 group-hover:text-primary-400 transition-colors">
+                  <div className="flex items-center justify-between pt-4 border-t border-dark-border">
+                    <span className="text-sm font-medium text-heading flex items-center gap-1 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors">
                       View Details
                     </span>
                     <div className="flex gap-3">
@@ -227,7 +227,7 @@ const Projects = () => {
                         target="_blank" 
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="p-2 rounded-full bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                        className="p-2 rounded-full bg-foreground/5 text-muted hover:text-heading hover:bg-foreground/10 transition-colors"
                       >
                         <Github className="w-4 h-4" />
                       </a>

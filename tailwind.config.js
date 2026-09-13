@@ -22,10 +22,13 @@ export default {
           950: '#172554',
         },
         dark: {
-          bg: '#0a0a0f',
-          card: '#12121a',
-          border: '#1f1f2e',
-        }
+          bg: 'rgb(var(--theme-bg) / <alpha-value>)',
+          card: 'rgb(var(--theme-card) / <alpha-value>)',
+          border: 'rgb(var(--theme-border) / <alpha-value>)',
+        },
+        heading: 'rgb(var(--theme-heading) / <alpha-value>)',
+        foreground: 'rgb(var(--theme-text) / <alpha-value>)',
+        muted: 'rgb(var(--theme-muted) / <alpha-value>)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

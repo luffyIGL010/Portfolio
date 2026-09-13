@@ -12,7 +12,7 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-white mb-4"
+            className="text-3xl md:text-4xl font-bold text-heading mb-4"
           >
             About <span className="text-gradient">Me</span>
           </motion.h2>
@@ -32,9 +32,9 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="prose prose-invert max-w-none">
+            <div className="prose max-w-none dark:prose-invert">
               {about.description.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="text-gray-300 text-lg leading-relaxed mb-4">
+                <p key={index} className="text-foreground text-lg leading-relaxed mb-4">
                   {paragraph}
                 </p>
               ))}
@@ -44,7 +44,7 @@ const About = () => {
               {about.stats.map((stat, index) => (
                 <div key={index} className="glass-card p-4 rounded-xl text-center">
                   <div className="text-primary-400 font-semibold mb-1 text-sm">{stat.label}</div>
-                  <div className="text-gray-200 text-sm">{stat.value}</div>
+                  <div className="text-foreground text-sm">{stat.value}</div>
                 </div>
               ))}
             </div>
@@ -63,8 +63,8 @@ const About = () => {
                   {item.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-                  <p className="text-gray-400">{item.description}</p>
+                  <h3 className="text-xl font-semibold text-heading mb-2">{item.title}</h3>
+                  <p className="text-muted">{item.description}</p>
                 </div>
               </div>
             ))}

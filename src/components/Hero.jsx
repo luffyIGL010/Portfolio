@@ -8,18 +8,20 @@ const TypeWriter = ({ words }) => {
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);
 
-  useEffect(() => {
-    if (index === words.length) setIndex(0);
+  const word = words[index] ?? words[0];
 
-    if (subIndex === words[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 1500);
-      return;
+  useEffect(() => {
+    if (!word) return undefined;
+
+    if (subIndex === word.length + 1 && !reverse) {
+      const pause = setTimeout(() => setReverse(true), 1500);
+      return () => clearTimeout(pause);
     }
 
     if (subIndex === 0 && reverse) {
       setReverse(false);
-      setIndex((prev) => prev + 1);
-      return;
+      setIndex((prev) => (prev + 1) % words.length);
+      return undefined;
     }
 
     const timeout = setTimeout(() => {
@@ -27,11 +29,11 @@ const TypeWriter = ({ words }) => {
     }, reverse ? 50 : 150);
 
     return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse, words]);
+  }, [subIndex, reverse, word, words.length]);
 
   return (
     <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400">
-      {`${words[index].substring(0, subIndex)}${subIndex === words[index].length ? '' : '|'}`}
+      {`${word.substring(0, subIndex)}${subIndex === word.length ? '' : '|'}`}
     </span>
   );
 };
@@ -55,19 +57,19 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block px-4 py-1.5 rounded-full border border-primary-500/30 bg-primary-500/10 text-primary-300 text-sm font-medium mb-6">
+            <div className="inline-block px-4 py-1.5 rounded-full border border-primary-500/30 bg-primary-500/10 text-primary-700 dark:text-primary-300 text-sm font-medium mb-6">
               AI & Machine Learning Engineer
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-heading mb-4 leading-tight">
               Hi, I'm <span className="text-gradient">Saurav Rauthan</span>
             </h1>
             
-            <h2 className="text-2xl sm:text-3xl font-semibold text-gray-300 mb-6 h-10">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-6 h-10">
               I am a <TypeWriter words={roles} />
             </h2>
             
-            <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+            <p className="text-muted text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
               I build intelligent applications, machine learning solutions, and data-driven products that solve real-world problems.
             </p>
             
@@ -76,26 +78,29 @@ const Hero = () => {
                 Explore My Projects
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="#contact" className="px-6 py-3 rounded-lg border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-medium transition-all">
+              <a href="#contact" className="px-6 py-3 rounded-lg border border-dark-border hover:border-muted text-foreground hover:text-heading font-medium transition-all">
                 Get In Touch
               </a>
-              <a href={personalInfo.resumeUrl} target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-lg border border-primary-500/50 hover:bg-primary-500/10 text-primary-400 font-medium transition-all flex items-center gap-2">
+              <a
+                href="#resume"
+                className="px-6 py-3 rounded-lg border border-primary-500/50 hover:bg-primary-500/10 text-primary-400 font-medium transition-all flex items-center gap-2"
+              >
                 <FileText className="w-4 h-4" />
-                Resume
+                View Resume
               </a>
             </div>
             
             <div className="flex items-center justify-center lg:justify-start gap-6">
-              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:-translate-y-1 transition-all">
+              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-heading hover:-translate-y-1 transition-all">
                 <Github className="w-6 h-6" />
               </a>
-              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 hover:-translate-y-1 transition-all">
+              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary-500 dark:hover:text-primary-400 hover:-translate-y-1 transition-all">
                 <Linkedin className="w-6 h-6" />
               </a>
-              <a href={personalInfo.leetcode} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 hover:-translate-y-1 transition-all font-bold text-xl flex items-center justify-center w-6 h-6">
+              <a href={personalInfo.leetcode} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-orange-500 hover:-translate-y-1 transition-all font-bold text-xl flex items-center justify-center w-6 h-6">
                 L
               </a>
-              <a href={`mailto:${personalInfo.email}`} className="text-gray-400 hover:text-red-400 hover:-translate-y-1 transition-all">
+              <a href={`mailto:${personalInfo.email}`} className="text-muted hover:text-red-500 hover:-translate-y-1 transition-all">
                 <Mail className="w-6 h-6" />
               </a>
             </div>
@@ -119,7 +124,7 @@ const Hero = () => {
               
               {/* Floating elements */}
               <motion.div 
-                className="absolute -top-4 -right-4 glass p-3 rounded-xl z-20 shadow-lg border border-white/10 text-primary-400"
+                className="absolute -top-4 -right-4 glass p-3 rounded-xl z-20 shadow-lg border border-dark-border text-primary-500 dark:text-primary-400"
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
               >
@@ -127,7 +132,7 @@ const Hero = () => {
               </motion.div>
               
               <motion.div 
-                className="absolute top-1/2 -left-8 glass p-3 rounded-xl z-20 shadow-lg border border-white/10 text-cyan-400"
+                className="absolute top-1/2 -left-8 glass p-3 rounded-xl z-20 shadow-lg border border-dark-border text-cyan-600 dark:text-cyan-400"
                 animate={{ y: [10, -10, 10] }}
                 transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
               >
@@ -135,7 +140,7 @@ const Hero = () => {
               </motion.div>
               
               <motion.div 
-                className="absolute -bottom-4 right-10 glass p-3 rounded-xl z-20 shadow-lg border border-white/10 text-blue-400"
+                className="absolute -bottom-4 right-10 glass p-3 rounded-xl z-20 shadow-lg border border-dark-border text-blue-600 dark:text-blue-400"
                 animate={{ y: [-5, 15, -5] }}
                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
               >
