@@ -47,9 +47,14 @@ const Certifications = () => {
               <h3 className="text-lg font-bold text-heading mb-2 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors">
                 {cert.name}
               </h3>
-              <p className="text-muted text-sm mb-6 flex-grow">
+              <p className="text-muted text-sm mb-2 flex-grow">
                 Issued by {cert.issuer}
               </p>
+              {cert.credentialId && (
+                <p className="text-xs text-muted/60 mb-4 font-mono">
+                  ID: {cert.credentialId}
+                </p>
+              )}
               
               <a 
                 href={cert.link} 

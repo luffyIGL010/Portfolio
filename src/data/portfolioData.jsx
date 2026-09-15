@@ -146,7 +146,7 @@ export const projects = [
     category: "Artificial Intelligence",
     description: "An AI-powered fitness assistant designed to help users improve their workout experience through intelligent guidance, personalized recommendations, and fitness-focused interactions.",
     technologies: ["Python", "Generative AI", "Web Development"],
-    liveUrl: "https://cheery-stardust-210ccc.netlify.app/",
+    liveUrl: "https://aigymcoach-5juxjews89c2qjeytpsm8x.streamlit.app",
     githubUrl: "https://github.com/luffyIGL010",
     image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop",
     details: {
@@ -157,6 +157,26 @@ export const projects = [
         "Personalized Workout Recommendations",
         "Fitness Guidance",
         "Responsive Web UI"
+      ]
+    }
+  },
+  {
+    id: 5,
+    title: "Brochure Generator",
+    category: "Artificial Intelligence",
+    description: "An AI-powered application that automatically generates professional brochures and marketing materials by leveraging large language models to create compelling content from user inputs.",
+    technologies: ["Python", "Generative AI", "LLM", "Streamlit"],
+    liveUrl: "https://brochuregenerator-hrd8renogsqoacsdrsqj5e.streamlit.app",
+    githubUrl: "https://github.com/luffyIGL010",
+    image: "https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=2070&auto=format&fit=crop",
+    details: {
+      problem: "Creating professional brochures and marketing materials is time-consuming and requires design expertise that many individuals and small businesses lack.",
+      solution: "Built an AI-powered brochure generator that takes user-provided information and automatically produces well-structured, professional marketing content using LLMs.",
+      features: [
+        "AI-Generated Marketing Content",
+        "Customizable Brochure Templates",
+        "Company & Product Information Input",
+        "Instant Content Generation"
       ]
     }
   }
@@ -174,33 +194,23 @@ export const education = [
 
 export const certifications = [
   {
-    name: "Python Programming",
-    issuer: "Placeholder Organization",
+    name: "Data Science",
+    issuer: "Tutedude",
     date: "2024",
     link: "#"
   },
   {
-    name: "Data Science and Machine Learning",
-    issuer: "Placeholder Organization",
+    name: "Machine Learning With Python",
+    issuer: "IBM (Coursera)",
     date: "2024",
-    link: "#"
+    credentialId: "MIFLJY8BTD8D",
+    link: "https://www.coursera.org/account/accomplishments/records/MIFLJY8BTD8D"
   },
   {
-    name: "AWS Cloud Practitioner",
-    issuer: "Amazon Web Services",
+    name: "Complete 2026 Python Bootcamp: Learn Python From Scratch",
+    issuer: "Udemy",
     date: "2025",
-    link: "#"
-  },
-  {
-    name: "Generative AI Fundamentals",
-    issuer: "Placeholder Organization",
-    date: "2025",
-    link: "#"
-  },
-  {
-    name: "Data Structures & Algorithms with Python",
-    issuer: "Placeholder Organization",
-    date: "2024",
-    link: "#"
+    credentialId: "UC-9f858873-1ecf-84e-a89d-41a5460adcc2",
+    link: "https://ude.my/UC-9f858873-1ecf-84e-a89d-41a5460adcc2"
   }
 ];
