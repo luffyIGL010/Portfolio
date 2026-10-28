@@ -81,6 +81,28 @@ export const skills = {
 
 export const projects = [
   {
+    id: 6,
+    title: "TravelCraft — Agentic Travel Planner",
+    category: "Artificial Intelligence",
+    description: "A multi-agent travel planner that turns natural-language trip requests into researched itineraries, with live travel data and real-time agent progress.",
+    technologies: ["Python", "FastAPI", "Groq", "Supabase", "WebSockets", "Vercel"],
+    liveUrl: "https://tripcraft-frontend-psi.vercel.app/",
+    githubUrl: "https://github.com/luffyIGL010",
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2070&auto=format&fit=crop",
+    details: {
+      problem: "Planning a trip requires coordinating flights, hotels, budgets, and weather across multiple sources, while many travelers begin with incomplete requirements.",
+      solution: "Built a full-stack planner with a Groq-powered Master Agent coordinating Transportation, Hotel, Budget, and Weather agents. It asks follow-up questions when trip details are missing and streams agent progress to the frontend over WebSockets.",
+      features: [
+        "Live flight and hotel research with SerpAPI",
+        "Weather forecasts from Open-Meteo",
+        "Real-time multi-agent progress over WebSockets",
+        "JWT authentication, Redis-backed login handling, and API rate limiting",
+        "Saved travel preferences and user-specific history in Supabase",
+        "Backend-verified PayPal sandbox order creation and capture"
+      ]
+    }
+  },
+  {
     id: 1,
     title: "AI ATS Resume Checker",
     category: "Artificial Intelligence",
@@ -193,6 +215,20 @@ export const education = [
 ];
 
 export const certifications = [
+  {
+    name: "AI Engineer Core Track: LLM Engineering, RAG, QLoRA, Agents",
+    issuer: "Udemy — Ligeny and Ed Donner",
+    date: "Oct 11, 2026",
+    credentialId: "UC-6098fc52-3e8f-4162-b58e-2a9fe22476d8",
+    link: "/certificates/AI_Engineer_Core_Track_Certificate.jpg"
+  },
+  {
+    name: "Naukri Campus Young Turks 2026 — Round 1 Achievement",
+    issuer: "Naukri Campus",
+    date: "Oct 19, 2026",
+    credentialId: "6acf4d1b4e85f92659e66333",
+    link: "/certificates/Young_Turks_2026_Round_1_Achievement.pdf"
+  },
   {
     name: "Data Science",
     issuer: "Tutedude",
